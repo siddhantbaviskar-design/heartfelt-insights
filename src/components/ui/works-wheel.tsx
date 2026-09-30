@@ -123,21 +123,6 @@ export function WorksWheel({
   const count = items.length;
   const last = Math.max(count - 1, 0);
 
-  if (count === 0) {
-    return (
-      <section
-        aria-label={label}
-        className={cn(
-          "bg-background text-muted-foreground grid h-full min-h-[24rem] w-full place-items-center",
-          className,
-        )}
-        {...props}
-      >
-        No work selected
-      </section>
-    );
-  }
-
   // Read after mount, not during render: the server has no matchMedia, and
   // branching on it inline is a hydration mismatch. Reduced motion drops the
   // easing, so the wheel lands where it is put instead of gliding there.
@@ -276,6 +261,21 @@ export function WorksWheel({
 
   const drag = React.useRef<number | null>(null);
   const settling = React.useRef(0);
+
+  if (count === 0) {
+    return (
+      <section
+        aria-label={label}
+        className={cn(
+          "bg-background text-muted-foreground grid h-full min-h-[24rem] w-full place-items-center",
+          className,
+        )}
+        {...props}
+      >
+        No work selected
+      </section>
+    );
+  }
 
   return (
     <section
