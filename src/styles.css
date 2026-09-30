@@ -62,6 +62,8 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-signal: var(--signal);
+  --color-hero-cream: var(--hero-cream);
+  --color-hero-ink: var(--hero-ink);
 }
 
 :root {
@@ -86,6 +88,9 @@
   --input: oklch(0.84 0.012 75);
   --ring: oklch(0.52 0.17 35);
   --signal: oklch(0.62 0.2 31);
+  /* Hero sits over video, so its surfaces are mode-independent. */
+  --hero-cream: oklch(0.9 0.024 100);
+  --hero-ink: oklch(0.15 0.006 90);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -134,6 +139,8 @@
   --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.551 0.027 264.364);
+  --hero-cream: oklch(0.9 0.024 100);
+  --hero-ink: oklch(0.15 0.006 90);
 }
 
 @layer base {
@@ -153,6 +160,12 @@
   a {
     font: inherit;
   }
+}
+
+/* Film-grain texture for the hero, blended over the background video. */
+.noise-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 300px 300px;
 }
 
 @media (prefers-reduced-motion: reduce) {
