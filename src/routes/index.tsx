@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { WorksWheel, type WorksWheelItem } from "@/components/ui/works-wheel";
+import { PrismaHero } from "@/components/ui/prisma-hero";
 import prismaticRift from "@/assets/work-prismatic-rift.jpg";
 import emberClouds from "@/assets/work-ember-clouds.jpg";
 import neonPortal from "@/assets/work-neon-portal.jpg";
@@ -13,15 +14,20 @@ import cosmicWave from "@/assets/work-cosmic-wave.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Works '26 — Selected Portfolio" },
+      { title: "Siddhant Baviskar — Art Direction & Image Making" },
       {
         name: "description",
-        content: "An interactive wheel of selected visual work for 2026.",
+        content:
+          "Independent art direction and image-making practice. Selected work for 2026, collected in an interactive wheel.",
       },
-      { property: "og:title", content: "Works '26 — Selected Portfolio" },
+      {
+        property: "og:title",
+        content: "Siddhant Baviskar — Art Direction & Image Making",
+      },
       {
         property: "og:description",
-        content: "An interactive wheel of selected visual work for 2026.",
+        content:
+          "Independent art direction and image-making practice. Selected work for 2026, collected in an interactive wheel.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -44,15 +50,22 @@ const WORKS: WorksWheelItem[] = [
 
 function Index() {
   return (
-    <main className="relative h-svh min-h-[32rem] w-full overflow-hidden bg-background">
-      <div className="pointer-events-none absolute top-5 left-5 z-20 flex items-center gap-3 font-mono text-[0.625rem] uppercase tracking-widest text-muted-foreground sm:top-7 sm:left-8">
-        <span className="size-1.5 rounded-full bg-signal" />
-        Independent practice
-      </div>
-      <div className="pointer-events-none absolute bottom-5 left-5 z-20 font-mono text-[0.625rem] uppercase tracking-widest text-muted-foreground sm:bottom-7 sm:left-8">
-        Art direction · Image making
-      </div>
-      <WorksWheel items={WORKS} label="Works '26" />
+    <main className="w-full">
+      <PrismaHero />
+
+      <section
+        id="works"
+        className="relative h-svh min-h-[32rem] w-full overflow-hidden bg-background"
+      >
+        <div className="pointer-events-none absolute top-5 left-5 z-20 flex items-center gap-3 font-mono text-[0.625rem] tracking-widest text-muted-foreground uppercase sm:top-7 sm:left-8">
+          <span className="size-1.5 rounded-full bg-signal" />
+          Independent practice
+        </div>
+        <div className="pointer-events-none absolute bottom-5 left-5 z-20 font-mono text-[0.625rem] tracking-widest text-muted-foreground uppercase sm:bottom-7 sm:left-8">
+          Art direction · Image making
+        </div>
+        <WorksWheel items={WORKS} label="Works '26" />
+      </section>
     </main>
   );
 }
