@@ -50,7 +50,7 @@ const WORKS: WorksWheelItem[] = [
 
 function Index() {
   return (
-    <main className="w-full">
+    <main className="flex w-full flex-col gap-5">
       <PrismaHero />
 
       <section
