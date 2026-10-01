@@ -123,7 +123,7 @@ export function PrismaHero({
 }: PrismaHeroProps) {
   return (
     <section className={cn("h-svh w-full", className)} {...props}>
-      <div className="relative h-full w-full overflow-hidden rounded-2xl bg-hero-ink md:rounded-[2rem]">
+      <div className="relative h-full w-full overflow-hidden bg-hero-ink">
         {/* Background video */}
         <video
           autoPlay
