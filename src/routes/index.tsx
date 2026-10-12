@@ -1,15 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { WorksWheel, type WorksWheelItem } from "@/components/ui/works-wheel";
-import { PrismaHero } from "@/components/ui/prisma-hero";
-import prismaticRift from "@/assets/work-prismatic-rift.jpg";
-import emberClouds from "@/assets/work-ember-clouds.jpg";
-import neonPortal from "@/assets/work-neon-portal.jpg";
-import redRibbon from "@/assets/work-red-ribbon.jpg";
-import celestial from "@/assets/work-celestial.jpg";
-import uplight from "@/assets/work-uplight.jpg";
-import indigoMarble from "@/assets/work-indigo-marble.jpg";
-import launchWindow from "@/assets/work-launch-window.jpg";
-import cosmicWave from "@/assets/work-cosmic-wave.jpg";
+import { GlassNav } from "@/components/ui/glass-nav";
+import { SmoothScroll } from "@/components/ui/smooth-scroll";
+import { WorkSection } from "@/components/ui/work-section";
+import { IntroHero } from "@/components/ui/intro-hero";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -36,36 +29,13 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const WORKS: WorksWheelItem[] = [
-  { title: "Prismatic Rift", image: prismaticRift },
-  { title: "Ember Clouds", image: emberClouds },
-  { title: "Neon Portal", image: neonPortal },
-  { title: "Red Ribbon", image: redRibbon },
-  { title: "Celestial", image: celestial },
-  { title: "Uplight", image: uplight },
-  { title: "Indigo Marble", image: indigoMarble },
-  { title: "Launch Window", image: launchWindow },
-  { title: "Cosmic Wave", image: cosmicWave },
-];
-
 function Index() {
   return (
-    <main className="flex w-full flex-col gap-5">
-      <PrismaHero />
-
-      <section
-        id="works"
-        className="relative h-svh min-h-[32rem] w-full overflow-hidden bg-background"
-      >
-        <div className="pointer-events-none absolute top-5 left-5 z-20 flex items-center gap-3 font-mono text-[0.625rem] tracking-widest text-muted-foreground uppercase sm:top-7 sm:left-8">
-          <span className="size-1.5 rounded-full bg-signal" />
-          Independent practice
-        </div>
-        <div className="pointer-events-none absolute bottom-5 left-5 z-20 font-mono text-[0.625rem] tracking-widest text-muted-foreground uppercase sm:bottom-7 sm:left-8">
-          Art direction · Image making
-        </div>
-        <WorksWheel items={WORKS} label="Works '26" />
-      </section>
+    <main className="flex w-full flex-col">
+      <SmoothScroll />
+      <GlassNav />
+      <IntroHero />
+      <WorkSection />
     </main>
   );
 }
